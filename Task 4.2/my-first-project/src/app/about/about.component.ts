@@ -10,6 +10,6 @@ export class AboutComponent implements OnInit {
 
   ngOnInit(): void {}
   title = 'AMG';
-  lat = 51.678418;
-  lng = 7.809007;
+  lat = 49.988358;
+  lng = 36.232845;
 }

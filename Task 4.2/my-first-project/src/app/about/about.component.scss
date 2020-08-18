@@ -11,7 +11,7 @@
         overflow: hidden;
         padding-bottom: 27%;
         position: relative;
-        height: 0;
+        height: 300px;
     }
 
     agm-map {
@@ -22,6 +22,8 @@
 @media screen and (max-width: 992px) {
     .main {
         .map-responsive {
+            height: 300px;
+
             agm-map {
                 height: 300px;
             }
@@ -32,6 +34,8 @@
 @media screen and (max-width: 768px) {
     .main {
         .map-responsive {
+            height: 300px;
+
             agm-map {
                 height: 300px;
             }
