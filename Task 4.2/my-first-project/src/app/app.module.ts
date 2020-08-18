@@ -9,7 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
 import { ContactComponent } from './contact/contact.component';
-import { Route } from '@angular/compiler/src/core';
+//import { Route } from '@angular/compiler/src/core';
 import { AboutComponent } from './about/about.component';
 
 const appRoutes: Routes = [

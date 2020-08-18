@@ -14,27 +14,27 @@
         height: 0;
     }
 
-    .map-responsive iframe {
-        left: 0;
-        top: 0;
-        height: 100%;
-        width: 100%;
-        position: absolute;
+    agm-map {
+        height: 300px;
     }
 }
 
 @media screen and (max-width: 992px) {
     .main {
-        .map-responsive iframe {
-            height: 90%;
+        .map-responsive {
+            agm-map {
+                height: 300px;
+            }
         }
     }
 }
 
 @media screen and (max-width: 768px) {
     .main {
-        .map-responsive iframe {
-            height: 100%;
+        .map-responsive {
+            agm-map {
+                height: 300px;
+            }
         }
     }
 }
