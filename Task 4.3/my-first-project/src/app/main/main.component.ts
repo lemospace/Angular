@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { BikesDataService } from '../bikes-data.service';
-import { Data } from '../data';
 
 @Component({
   selector: 'app-main',
@@ -8,15 +6,7 @@ import { Data } from '../data';
   styleUrls: ['./main.component.scss'],
 })
 export class MainComponent implements OnInit {
-  constructor(private bikesDataService: BikesDataService) {}
+  constructor() {}
 
-  datA: Data[];
-
-  getData(): void {
-    this.datA = this.bikesDataService.getData();
-  }
-
-  ngOnInit() {
-    this.getData();
-  }
+  ngOnInit() {}
 }

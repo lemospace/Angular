@@ -1,4 +1,6 @@
-export const dataComponents = [
+import { Data } from '../app/data';
+
+export const dataComponents: Data[] = [
   {
     id: 1,
     imgUrl:

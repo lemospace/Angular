@@ -7,21 +7,23 @@
 
 .wrapper {
     width: 100%;
-    min-height: 100vh;
+    height: 100%;
     display: grid;
     grid-template-areas: "a a a" "b c d" "e e e";
-    grid-template-rows: 40% auto 5%;
+    grid-template-rows: auto auto 40px;
     grid-template-columns: 8% 1fr 8%;
+    overflow: hidden;
 }
 
 .header {
     color: #fff;
     grid-area: a;
     overflow: hidden;
+    max-height: 200px;
 
     img {
         width: 100%;
-        max-height: 350px;
+        max-height: 200px;
         object-fit: cover;
     }
 }
@@ -48,8 +50,13 @@
 }
 
 .main {
+    max-height: 100%;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-y: scroll;
     width: 100%;
-    height: 100%;
     grid-area: c;
     position: relative;
     color: #878787;
@@ -57,7 +64,27 @@
 
 .aside-2 {
     background-color: rgba(117, 98, 98, 0.2);
+    position: relative;
     grid-area: d;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+
+    .reg-page {
+        display: grid;
+
+        a {
+            justify-self: center;
+        }
+
+        img {
+            justify-self: center;
+        }
+
+        p {
+            text-align: center;
+        }
+    }
 }
 
 .footer {
