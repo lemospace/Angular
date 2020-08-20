@@ -1,0 +1,44 @@
+.main {
+    padding: 20px 40px;
+
+    p {
+        text-align: justify;
+        padding-bottom: 20px;
+    }
+
+    .map-responsive {
+        margin: 0 auto;
+        overflow: hidden;
+        padding-bottom: 27%;
+        position: relative;
+        height: 300px;
+    }
+
+    agm-map {
+        height: 300px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .main {
+        .map-responsive {
+            height: 300px;
+
+            agm-map {
+                height: 300px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .main {
+        .map-responsive {
+            height: 300px;
+
+            agm-map {
+                height: 300px;
+            }
+        }
+    }
+}
