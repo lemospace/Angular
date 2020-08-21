@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Data } from '../data';
 import { dataComponents } from '../../assets/data';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-bikes',
@@ -14,9 +12,4 @@ export class BikesComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
-
-  condition: boolean = true;
-  toggle() {
-    this.condition = !this.condition;
-  }
 }
