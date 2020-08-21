@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { dataComponents } from '../../assets/data';
+import { Data } from '../data';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-bikes',
@@ -7,9 +8,13 @@ import { dataComponents } from '../../assets/data';
   styleUrls: ['./bikes.component.scss'],
 })
 export class BikesComponent implements OnInit {
-  bikes = dataComponents;
+  bikes: Data[];
 
-  constructor() {}
+  constructor(private dataService: DataService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.dataService.getGoods().subscribe((res) => {
+      this.bikes = res;
+    });
+  }
 }
