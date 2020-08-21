@@ -14,4 +14,9 @@ export class BikesComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  condition: boolean = true;
+  toggle() {
+    this.condition = !this.condition;
+  }
 }

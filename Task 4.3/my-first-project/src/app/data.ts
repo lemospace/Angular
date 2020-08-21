@@ -3,17 +3,14 @@ export class Data {
   imgUrl: string;
   price: number;
   discount: number;
-  main: string;
+  main: boolean;
   shop: string;
   name: string;
   description: string;
   shipping: string;
   discountUntil: string;
-  new: any;
-  color: any;
-  size: any;
-  review: any;
-  author: string;
-  text: string;
-  rating: number;
+  new: boolean;
+  color: string[];
+  size: string[];
+  review: { author: string; text: string; rating: number }[];
 }

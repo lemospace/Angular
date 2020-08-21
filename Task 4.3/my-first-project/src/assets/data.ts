@@ -237,3 +237,8 @@ export const dataComponents: Data[] = [
     ],
   },
 ];
+
+dataComponents.sort((a, b) => {
+  return a.discount - b.discount;
+});
+dataComponents.reverse();
