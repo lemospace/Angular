@@ -1,6 +1,8 @@
-<p>multi-step-form works!</p>
-<div>
-  <h1 class="form-heading">{{ stepItems[activeStepIndex].label }}</h1>
+<div class="container">
+  <div class="header">
+    <h1>Complete your order</h1>
+  </div>
+  <h2 class="form-heading">{{ stepItems[activeStepIndex].label }}</h2>
 
   <ng-container
     *ngFor="let form of masterForm; let i = index; trackBy: trackByFn"
@@ -10,7 +12,7 @@
       [formGroup]="masterForm[i]"
       *ngIf="i === activeStepIndex || masterForm.length === 1"
     >
-      <div class="">
+      <div>
         <div class="fields-container">
           <div
             *ngFor="let field of formFields[i]; trackBy: trackByFn"
@@ -26,12 +28,13 @@
                   [id]="field"
                   [formControlName]="field"
                   [placeholder]="currentFormContent[i][field].placeholder"
+                  rows="3"
                 ></textarea>
               </ng-container>
 
               <ng-container *ngSwitchCase="'select'">
                 <select [formControlName]="field" [id]="field">
-                  <option value="">Select your Country</option>
+                  <option value="">Select your Bike</option>
                   <option
                     *ngFor="
                       let option of currentFormContent[i][field].options;
@@ -47,6 +50,7 @@
               <ng-container *ngSwitchDefault>
                 <input
                   [type]="currentFormContent[i][field].type"
+                  [name]="currentFormContent[i][field].name"
                   [formControlName]="field"
                   [id]="field"
                   [placeholder]="currentFormContent[i][field].placeholder"

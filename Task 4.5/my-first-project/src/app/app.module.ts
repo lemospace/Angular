@@ -16,8 +16,8 @@ import { AboutComponent } from './about/about.component';
 import { BikesComponent } from './bikes/bikes.component';
 import { BikeDetailComponent } from './bike-detail/bike-detail.component';
 import { OrderComponent } from './order/order.component';
-import { MultiStepFormComponent } from './multi-step-form/multi-step-form.component';
 import { FormatTitlePipe } from './format-title.pipe';
+import { MultiStepFormComponent } from './multi-step-form/multi-step-form.component';
 
 const appRoutes: Routes = [
   { path: '', component: MainComponent },

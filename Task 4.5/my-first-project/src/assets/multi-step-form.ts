@@ -1,3 +1,5 @@
+import { dataComponents } from './data';
+
 const COUNTRY_LIST = [
   { name: 'United States of America', code: 'us' },
   { name: 'United Kingdoms', code: 'gb' },
@@ -5,36 +7,36 @@ const COUNTRY_LIST = [
 ];
 
 const DATA_STEP_1 = {
-  firstName: {
-    type: 'text',
+  SelectGoods: {
+    type: 'select',
+    options: dataComponents,
     validations: {},
     errors: {},
-    placeholder: 'First Name',
+    placeholder: 'Bikes',
   },
-  lastName: {
-    type: 'text',
+  description: {
+    type: 'textarea',
     validations: {},
     errors: {},
-    placeholder: 'Last Name',
-  },
-  dateOfBirth: {
-    type: 'date',
-    validations: {},
-    errors: {},
-    placeholder: 'Date of Birth',
+    placeholder: 'Your comments',
   },
 };
 
 const DATA_STEP_2 = {
   address: {
-    type: 'textarea',
+    type: 'text',
     validations: {},
     errors: {},
     placeholder: 'Full Address',
   },
+  city: {
+    type: 'text',
+    validations: {},
+    errors: {},
+    placeholder: 'City',
+  },
   country: {
-    type: 'select',
-    options: COUNTRY_LIST,
+    type: 'text',
     validations: {},
     errors: {},
     placeholder: 'Country',
@@ -42,27 +44,49 @@ const DATA_STEP_2 = {
 };
 
 const DATA_STEP_3 = {
-  phone: {
-    type: 'phone',
-    validations: {
-      pattern: /^\d{10}$/,
-    },
-    errors: {
-      pattern: 'Please enter a valid phone number',
-    },
-    placeholder: 'Contact Number',
+  Card: {
+    type: 'radio',
+    name: 'method',
+    validations: {},
+    errors: {},
   },
-  otp: {
+  Paypal: {
+    type: 'radio',
+    name: 'method',
+    validations: {},
+    errors: {},
+  },
+  Cash: {
+    type: 'radio',
+    name: 'method',
+    validations: {},
+    errors: {},
+  },
+  CardNumber: {
     type: 'number',
-    validations: {
-      required: true,
-      minLength: 4,
-    },
-    errors: {
-      required: 'This field can not be left blank',
-      minlength: 'Minimum length should be 4 characters',
-    },
-    placeholder: 'One Time Password',
+    validations: { pattern: /^\d{16}$/ },
+    errors: { pattern: 'Please enter a valid card number' },
+    placeholder: 'Card number',
+  },
+};
+const DATA_STEP_4 = {
+  Today: {
+    type: 'radio',
+    name: 'date',
+    validations: {},
+    errors: {},
+  },
+  Tomorrow: {
+    type: 'radio',
+    name: 'date',
+    validations: {},
+    errors: {},
+  },
+  ChooseADateConvenientForYou: {
+    type: 'date',
+    validations: {},
+    errors: {},
+    placeholder: 'Cash',
   },
 };
 
@@ -70,6 +94,7 @@ const STEP_ITEMS = [
   { label: 'Step 1', data: DATA_STEP_1 },
   { label: 'Step 2', data: DATA_STEP_2 },
   { label: 'Step 3', data: DATA_STEP_3 },
+  { label: 'Step 4', data: DATA_STEP_4 },
   { label: 'Review & Submit', data: {} },
 ];
 
