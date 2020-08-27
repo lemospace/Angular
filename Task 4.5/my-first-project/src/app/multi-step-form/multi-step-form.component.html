@@ -1,50 +1,114 @@
-<div class="container">
-  <form id="form" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
-    <div class="header">
-      <h1>Complete your order</h1>
-    </div>
-    <div class="step1" formGroupName="firstStep">
-      <div class="goods">
-        <label for="">Select goods:</label>
-        <select formControlName="goodsName" required>
-          <option value=""></option>
-          <option *ngFor="let bike of bikes" [ngValue]="bike.name">
-            {{ bike.name }}
-          </option>
-        </select>
-      </div>
-      <div class="description">
-        <textarea
-          formControlName="description"
-          name=""
-          id=""
-          cols="30"
-          rows="10"
-        ></textarea>
-      </div>
-    </div>
-    <p>Form Status: {{ profileForm.status }}</p>
-    <p>Value: {{ profileForm.value }}</p>
-    <button
-      type="submit"
-      [disabled]="!profileForm.valid"
-      id="next"
-      class="next"
+<p>multi-step-form works!</p>
+<div>
+  <h1 class="form-heading">{{ stepItems[activeStepIndex].label }}</h1>
+
+  <ng-container
+    *ngFor="let form of masterForm; let i = index; trackBy: trackByFn"
+  >
+    <form
+      action=""
+      [formGroup]="masterForm[i]"
+      *ngIf="i === activeStepIndex || masterForm.length === 1"
     >
-      Next
-    </button>
-  </form>
+      <div class="">
+        <div class="fields-container">
+          <div
+            *ngFor="let field of formFields[i]; trackBy: trackByFn"
+            [ngSwitch]="currentFormContent[i][field].type"
+          >
+            <div class="full-width">
+              <label class="field-label text-bold" [for]="field">{{
+                field | formatTitle
+              }}</label>
 
-  <div formArrayName="aliases">
-    <h3>Aliases</h3>
-    <button (click)="addAlias()">Add Alias</button>
+              <ng-container *ngSwitchCase="'textarea'">
+                <textarea
+                  [id]="field"
+                  [formControlName]="field"
+                  [placeholder]="currentFormContent[i][field].placeholder"
+                ></textarea>
+              </ng-container>
 
-    <div *ngFor="let alias of aliases.controls; let i = index">
-      <!-- The repeated alias template -->
-      <label>
-        Alias:
-        <input type="text" [formControlName]="i" />
-      </label>
-    </div>
-  </div>
+              <ng-container *ngSwitchCase="'select'">
+                <select [formControlName]="field" [id]="field">
+                  <option value="">Select your Country</option>
+                  <option
+                    *ngFor="
+                      let option of currentFormContent[i][field].options;
+                      trackBy: trackByFn
+                    "
+                    [value]="option.name"
+                  >
+                    {{ option.name }}
+                  </option>
+                </select>
+              </ng-container>
+
+              <ng-container *ngSwitchDefault>
+                <input
+                  [type]="currentFormContent[i][field].type"
+                  [formControlName]="field"
+                  [id]="field"
+                  [placeholder]="currentFormContent[i][field].placeholder"
+                />
+              </ng-container>
+            </div>
+
+            <p
+              class="validation-error"
+              *ngIf="
+                (masterForm[i].get(field).dirty ||
+                  masterForm[i].get(field).touched) &&
+                masterForm[i].get(field).invalid &&
+                masterForm[i].get(field).errors
+              "
+            >
+              {{ getValidationMessage(i, field) }}
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="preview-container"
+          *ngIf="activeStepIndex === stepItems.length - 1"
+        >
+          <ul>
+            <li
+              class="form-details-list"
+              *ngFor="let field of masterFormFields; trackBy: trackByFn"
+            >
+              <span class="text-bold">{{ field | formatTitle }}</span>
+              <span>{{ formData[field] || "N/A" }}</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="button-container">
+          <button
+            type="button"
+            [disabled]="!activeStepIndex"
+            (click)="goToStep('prev')"
+          >
+            Previous
+          </button>
+          <button
+            *ngIf="activeStepIndex === stepItems.length - 1"
+            type="button"
+            (click)="onFormSubmit()"
+          >
+            Submit
+          </button>
+          <button
+            type="button"
+            [disabled]="
+              activeStepIndex === stepItems.length - 1 || masterForm[i].invalid
+            "
+            (click)="goToStep('next')"
+          >
+            Next
+          </button>
+        </div>
+      </div>
+    </form>
+  </ng-container>
 </div>

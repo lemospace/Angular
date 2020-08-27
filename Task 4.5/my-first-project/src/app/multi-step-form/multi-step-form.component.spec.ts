@@ -1,19 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { multiStepFormComponent } from './multi-step-form.component';
+import { MultiStepFormComponent } from './multi-step-form.component';
 
-describe('multiStepFormComponent', () => {
-  let component: multiStepFormComponent;
-  let fixture: ComponentFixture<multiStepFormComponent>;
+describe('MultiStepFormComponent', () => {
+  let component: MultiStepFormComponent;
+  let fixture: ComponentFixture<MultiStepFormComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [multiStepFormComponent],
-    }).compileComponents();
+      declarations: [ MultiStepFormComponent ]
+    })
+    .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(multiStepFormComponent);
+    fixture = TestBed.createComponent(MultiStepFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

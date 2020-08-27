@@ -16,7 +16,7 @@ import { AboutComponent } from './about/about.component';
 import { BikesComponent } from './bikes/bikes.component';
 import { BikeDetailComponent } from './bike-detail/bike-detail.component';
 import { OrderComponent } from './order/order.component';
-import { multiStepFormComponent } from './multi-step-form/multi-step-form.component';
+import { MultiStepFormComponent } from './multi-step-form/multi-step-form.component';
 import { FormatTitlePipe } from './format-title.pipe';
 
 const appRoutes: Routes = [
@@ -35,8 +35,8 @@ const appRoutes: Routes = [
     BikesComponent,
     BikeDetailComponent,
     OrderComponent,
-    multiStepFormComponent,
     FormatTitlePipe,
+    MultiStepFormComponent,
   ],
   imports: [
     BrowserModule,
