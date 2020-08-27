@@ -1,0 +1,26 @@
+<div class="wrapper">
+  <form class="form" #form="ngForm" (ngSubmit)="logForm(form.value)">
+    <fieldset ngModelGroup="name">
+      <label>Firstname:</label>
+      <input type="text" name="firstname" [(ngModel)]="firstname" />
+      <p>You entered {{ firstname }}</p>
+
+      <label>Lastname:</label>
+      <input type="text" name="lastname" [(ngModel)]="lastname" />
+      <p>You entered {{ lastname }}</p>
+    </fieldset>
+    <fieldset ngModelGroup="info">
+      <label>E-mail<input type="email" required [(ngModel)]="email" /></label>
+      <label
+        >Your comments<textarea
+          name="comment"
+          cols="40"
+          rows="3"
+          required
+          [(ngModel)]="description"
+        ></textarea>
+      </label>
+    </fieldset>
+    <button type="submit">Submit</button>
+  </form>
+</div>

@@ -1,11 +1,5 @@
 import { dataComponents } from './data';
 
-const COUNTRY_LIST = [
-  { name: 'United States of America', code: 'us' },
-  { name: 'United Kingdoms', code: 'gb' },
-  { name: 'India', code: 'in' },
-];
-
 const DATA_STEP_1 = {
   SelectGoods: {
     type: 'select',
@@ -47,18 +41,21 @@ const DATA_STEP_3 = {
   Card: {
     type: 'radio',
     name: 'method',
+    value: 'Card',
     validations: {},
     errors: {},
   },
   Paypal: {
     type: 'radio',
     name: 'method',
+    value: 'Paypal',
     validations: {},
     errors: {},
   },
   Cash: {
     type: 'radio',
     name: 'method',
+    value: 'Cash',
     validations: {},
     errors: {},
   },
@@ -73,12 +70,14 @@ const DATA_STEP_4 = {
   Today: {
     type: 'radio',
     name: 'date',
+    value: 'Today',
     validations: {},
     errors: {},
   },
   Tomorrow: {
     type: 'radio',
     name: 'date',
+    value: 'Tomorrow',
     validations: {},
     errors: {},
   },

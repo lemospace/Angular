@@ -18,6 +18,7 @@ import { BikeDetailComponent } from './bike-detail/bike-detail.component';
 import { OrderComponent } from './order/order.component';
 import { FormatTitlePipe } from './format-title.pipe';
 import { MultiStepFormComponent } from './multi-step-form/multi-step-form.component';
+import { ContactFormComponent } from './contact-form/contact-form.component';
 
 const appRoutes: Routes = [
   { path: '', component: MainComponent },
@@ -37,6 +38,7 @@ const appRoutes: Routes = [
     OrderComponent,
     FormatTitlePipe,
     MultiStepFormComponent,
+    ContactFormComponent,
   ],
   imports: [
     BrowserModule,
