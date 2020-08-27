@@ -1,0 +1,51 @@
+<div class="container">
+  <form id="form" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <div class="header">
+      <h1>Complete your order</h1>
+    </div>
+    <div class="step1" formGroupName="firstStep">
+      <div class="goods">
+        <label for="">Select goods:</label>
+        <select formControlName="goodsName" required>
+          <option value=""></option>
+          <option
+            *ngFor="let bike of bikes"
+            value="{{ bike.name }}, {{ bike.description }}"
+          >
+            {{ bike.name }},
+            {{ bike.description }}
+          </option>
+        </select>
+      </div>
+      <div class="description">
+        <textarea
+          formControlName="description"
+          name=""
+          id=""
+          cols="30"
+          rows="10"
+        ></textarea>
+      </div>
+    </div>
+    <button
+      type="submit"
+      [disabled]="!profileForm.valid"
+      id="next"
+      class="next"
+    >
+      Next
+    </button>
+  </form>
+  <div formArrayName="aliases">
+    <h3>Aliases</h3>
+    <button (click)="addAlias()">Add Alias</button>
+
+    <div *ngFor="let alias of aliases.controls; let i = index">
+      <!-- The repeated alias template -->
+      <label>
+        Alias:
+        <input type="text" [formControlName]="i" />
+      </label>
+    </div>
+  </div>
+</div>
