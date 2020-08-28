@@ -1,26 +1,50 @@
-<div class="wrapper">
-  <form class="form" #form="ngForm" (ngSubmit)="logForm(form.value)">
-    <fieldset ngModelGroup="name">
-      <label>Firstname:</label>
+<div class="container">
+  <div class="heading">
+    <h1>Contact form</h1>
+  </div>
+  <form class="form" #form="ngForm" (ngSubmit)="onSubmit()">
+    <div ngModelGroup="name">
+      <label>Firstname</label>
       <input type="text" name="firstname" [(ngModel)]="firstname" />
-      <p>You entered {{ firstname }}</p>
+      <p>You entered: {{ firstname }}</p>
 
-      <label>Lastname:</label>
+      <label>Lastname</label>
       <input type="text" name="lastname" [(ngModel)]="lastname" />
-      <p>You entered {{ lastname }}</p>
-    </fieldset>
-    <fieldset ngModelGroup="info">
-      <label>E-mail<input type="email" required [(ngModel)]="email" /></label>
-      <label
-        >Your comments<textarea
-          name="comment"
-          cols="40"
-          rows="3"
-          required
-          [(ngModel)]="description"
-        ></textarea>
-      </label>
-    </fieldset>
+      <p>You entered: {{ lastname }}</p>
+    </div>
+    <div ngModelGroup="info">
+      <label>E-mail</label>
+      <input type="email" name="email" required [(ngModel)]="email" />
+      <label>Your comments </label>
+      <textarea
+        name="comment"
+        cols="40"
+        rows="3"
+        required
+        [(ngModel)]="description"
+      ></textarea>
+    </div>
     <button type="submit">Submit</button>
   </form>
+  <div class="hidden" [hidden]="!submitted">
+    <h2>You submitted the following:</h2>
+    <div class="row">
+      <div class="col-xs-3">First name:</div>
+      <div class="col-xs-9">{{ firstname }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Second name:</div>
+      <div class="col-xs-9">{{ lastname }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Email:</div>
+      <div class="col-xs-9">{{ email }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Your comments:</div>
+      <div class="col-xs-9">{{ description }}</div>
+    </div>
+    <br />
+    <button class="btn btn-primary" (click)="submitted = false">Edit</button>
+  </div>
 </div>

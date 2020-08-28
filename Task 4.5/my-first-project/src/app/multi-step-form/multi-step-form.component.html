@@ -57,6 +57,21 @@
                   [placeholder]="currentFormContent[i][field].placeholder"
                 />
               </ng-container>
+
+              <ng-container
+                *ngIf="currentFormContent[i][field].type === 'radio'"
+              >
+                <input
+                  *ngFor="let op of currentFormContent[i][field].options"
+                  [type]="currentFormContent[i][field].type"
+                  [name]="currentFormContent[i][field].name"
+                  [value]="currentFormContent[i][field].options"
+                  [formControlName]="field"
+                  [id]="field"
+                  [placeholder]="currentFormContent[i][field].placeholder"
+                />
+                {{ currentFormContent[i][field].value }}
+              </ng-container>
             </div>
 
             <p

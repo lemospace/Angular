@@ -38,27 +38,28 @@ const DATA_STEP_2 = {
 };
 
 const DATA_STEP_3 = {
-  Card: {
+  PaymentMethods: {
     type: 'radio',
     name: 'method',
     value: 'Card',
     validations: {},
     errors: {},
+    options: ['Card', 'PayPal', 'Cash'],
   },
-  Paypal: {
-    type: 'radio',
-    name: 'method',
-    value: 'Paypal',
-    validations: {},
-    errors: {},
-  },
-  Cash: {
-    type: 'radio',
-    name: 'method',
-    value: 'Cash',
-    validations: {},
-    errors: {},
-  },
+  // Paypal: {
+  //   type: 'radio',
+  //   name: 'method',
+  //   value: 'Paypal',
+  //   validations: {},
+  //   errors: {},
+  // },
+  // Cash: {
+  //   type: 'radio',
+  //   name: 'method',
+  //   value: 'Cash',
+  //   validations: {},
+  //   errors: {},
+  // },
   CardNumber: {
     type: 'number',
     validations: { pattern: /^\d{16}$/ },

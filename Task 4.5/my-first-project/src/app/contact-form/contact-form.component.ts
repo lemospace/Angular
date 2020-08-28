@@ -14,8 +14,10 @@ export class ContactFormComponent implements OnInit {
   email = '';
   description = '';
 
-  logForm(value: any) {
-    console.log(value);
+  submitted = false;
+
+  onSubmit() {
+    this.submitted = true;
   }
 
   ngOnInit(): void {}
