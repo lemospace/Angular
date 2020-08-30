@@ -1,6 +1,6 @@
 .main {
     width: calc(100% + 15px);
-    max-height: 500px;
+    min-height: 500px;
 
     app-multi-step-form {
         height: 100%;

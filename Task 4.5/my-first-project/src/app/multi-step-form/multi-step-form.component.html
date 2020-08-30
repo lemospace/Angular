@@ -34,7 +34,9 @@
 
               <ng-container *ngSwitchCase="'select'">
                 <select [formControlName]="field" [id]="field">
-                  <option value="">Select your Bike</option>
+                  <option value="">
+                    {{ currentFormContent[i][field].placeholder }}
+                  </option>
                   <option
                     *ngFor="
                       let option of currentFormContent[i][field].options;
@@ -58,20 +60,48 @@
                 />
               </ng-container>
 
-              <ng-container
+              <ng-container *ngSwitchCase="'radio'">
+                <div class="date-container">
+                  <div class="labels">
+                    <label
+                      *ngFor="
+                        let option of currentFormContent[i][field].options;
+                        trackBy: trackByFn
+                      "
+                    >
+                      {{ option.placeholder }}
+                    </label>
+                  </div>
+                  <div class="inputs">
+                    <input
+                      *ngFor="
+                        let option of currentFormContent[i][field].options;
+                        trackBy: trackByFn
+                      "
+                      [type]="option.type"
+                      [name]="option.name"
+                      [value]="option.placeholder"
+                      [formControlName]="field"
+                      [id]="field"
+                      [placeholder]="option.placeholder"
+                    />
+                  </div>
+                </div>
+              </ng-container>
+
+              <!--<ng-container
                 *ngIf="currentFormContent[i][field].type === 'radio'"
               >
                 <input
                   *ngFor="let op of currentFormContent[i][field].options"
-                  [type]="currentFormContent[i][field].type"
-                  [name]="currentFormContent[i][field].name"
-                  [value]="currentFormContent[i][field].options"
+                  [type]="radio"
+                  [name]="op.name"
+                  [value]="op.value"
                   [formControlName]="field"
                   [id]="field"
-                  [placeholder]="currentFormContent[i][field].placeholder"
                 />
-                {{ currentFormContent[i][field].value }}
-              </ng-container>
+                {{ op.name }}
+              </ng-container> -->
             </div>
 
             <p
@@ -97,8 +127,8 @@
               class="form-details-list"
               *ngFor="let field of masterFormFields; trackBy: trackByFn"
             >
-              <span class="text-bold">{{ field | formatTitle }}</span>
-              <span>{{ formData[field] || "N/A" }}</span>
+              <span class="text-bold">{{ field | formatTitle }}: </span>
+              <span class="result"> {{ formData[field] || "N/A" }}</span>
             </li>
           </ul>
         </div>

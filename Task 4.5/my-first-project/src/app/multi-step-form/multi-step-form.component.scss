@@ -48,6 +48,31 @@
             color: rgb(96, 104, 168);
         }
 
+        .result {
+            color: rgb(63, 190, 63);
+        }
+
+        .date-container {
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: 40% 60%;
+            grid-gap: 10px;
+
+            .labels {
+                display: grid;
+
+                label {
+                    align-self: center;
+                }
+            }
+
+            .inputs {
+                input {
+                    margin: 5px;
+                }
+            }
+        }
+
         .button-container {
             display: flex;
             justify-content: space-between;

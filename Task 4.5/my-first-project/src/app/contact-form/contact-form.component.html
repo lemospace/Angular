@@ -5,7 +5,13 @@
   <form class="form" #form="ngForm" (ngSubmit)="onSubmit()">
     <div ngModelGroup="name">
       <label>Firstname</label>
-      <input type="text" name="firstname" [(ngModel)]="firstname" />
+      <input
+        type="text"
+        name="firstname"
+        [(ngModel)]="firstname"
+        required
+        pattern="/^\d{2}$/"
+      />
       <p>You entered: {{ firstname }}</p>
 
       <label>Lastname</label>

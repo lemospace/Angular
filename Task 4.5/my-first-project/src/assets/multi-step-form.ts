@@ -1,12 +1,49 @@
 import { dataComponents } from './data';
+import { Data } from 'src/app/data';
+
+const PaymentMethods = [
+  {
+    name: 'Card',
+    value: 'Card',
+    type: 'radio',
+  },
+  {
+    name: 'Paypal',
+    value: 'Paypal',
+    type: 'radio',
+  },
+  {
+    name: 'Cash',
+    value: 'Cash',
+    type: 'radio',
+  },
+];
+
+const Date = [
+  {
+    type: 'radio',
+    value: 'Today',
+    placeholder: 'Today',
+  },
+  {
+    type: 'radio',
+    value: 'Tomorrow',
+    placeholder: 'Tomorrow',
+  },
+  {
+    type: 'radio',
+    value: 'Other',
+    placeholder: 'Other',
+  },
+];
 
 const DATA_STEP_1 = {
-  SelectGoods: {
+  Goods: {
     type: 'select',
     options: dataComponents,
-    validations: {},
-    errors: {},
-    placeholder: 'Bikes',
+    validations: { required: true },
+    errors: { required: 'This field can not be left blank' },
+    placeholder: 'Choose here',
   },
   description: {
     type: 'textarea',
@@ -19,47 +56,34 @@ const DATA_STEP_1 = {
 const DATA_STEP_2 = {
   address: {
     type: 'text',
-    validations: {},
-    errors: {},
+    validations: { required: true },
+    errors: { required: 'This field can not be left blank' },
     placeholder: 'Full Address',
   },
   city: {
     type: 'text',
-    validations: {},
-    errors: {},
+    validations: { required: true },
+    errors: { required: 'This field can not be left blank' },
     placeholder: 'City',
   },
   country: {
     type: 'text',
-    validations: {},
-    errors: {},
+    validations: { required: true },
+    errors: { required: 'This field can not be left blank' },
     placeholder: 'Country',
   },
 };
 
 const DATA_STEP_3 = {
-  PaymentMethods: {
-    type: 'radio',
-    name: 'method',
-    value: 'Card',
-    validations: {},
-    errors: {},
-    options: ['Card', 'PayPal', 'Cash'],
+  PaymentMethod: {
+    type: 'select',
+    name: 'methods',
+    validations: { required: true },
+    errors: { required: 'This field can not be left blank' },
+    options: PaymentMethods,
+    placeholder: 'Choose here',
   },
-  // Paypal: {
-  //   type: 'radio',
-  //   name: 'method',
-  //   value: 'Paypal',
-  //   validations: {},
-  //   errors: {},
-  // },
-  // Cash: {
-  //   type: 'radio',
-  //   name: 'method',
-  //   value: 'Cash',
-  //   validations: {},
-  //   errors: {},
-  // },
+
   CardNumber: {
     type: 'number',
     validations: { pattern: /^\d{16}$/ },
@@ -68,25 +92,19 @@ const DATA_STEP_3 = {
   },
 };
 const DATA_STEP_4 = {
-  Today: {
+  DateOfDelivery: {
     type: 'radio',
     name: 'date',
-    value: 'Today',
+    value: Date,
     validations: {},
     errors: {},
+    options: Date,
   },
-  Tomorrow: {
-    type: 'radio',
-    name: 'date',
-    value: 'Tomorrow',
-    validations: {},
-    errors: {},
-  },
-  ChooseADateConvenientForYou: {
+  ChooseADate: {
     type: 'date',
     validations: {},
     errors: {},
-    placeholder: 'Cash',
+    placeholder: 'Choose date',
   },
 };
 
