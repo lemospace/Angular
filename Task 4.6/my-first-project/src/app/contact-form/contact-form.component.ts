@@ -8,16 +8,10 @@ import { Router } from '@angular/router';
 })
 export class ContactFormComponent implements OnInit {
   constructor(private router: Router) {}
-
-  firstname = '';
-  lastname = '';
-  email = '';
-  description = '';
-
-  submitted = false;
+  model: any = {};
 
   onSubmit() {
-    this.router.navigateByUrl('contact-compete');
+    this.router.navigateByUrl('contact-complete');
   }
 
   ngOnInit(): void {}
