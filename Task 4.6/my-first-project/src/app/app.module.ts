@@ -21,7 +21,6 @@ import { MultiStepFormComponent } from './multi-step-form/multi-step-form.compon
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { OrderCompleteComponent } from './order-complete/order-complete.component';
 import { ContactCompleteComponent } from './contact-complete/contact-complete.component';
-import { MustMatchDirective } from './contact-form/must-match.directive';
 
 const appRoutes: Routes = [
   { path: '', component: MainComponent },
@@ -44,7 +43,6 @@ const appRoutes: Routes = [
     ContactFormComponent,
     OrderCompleteComponent,
     ContactCompleteComponent,
-    MustMatchDirective,
   ],
   imports: [
     BrowserModule,
