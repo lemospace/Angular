@@ -88,20 +88,6 @@
                   </div>
                 </div>
               </ng-container>
-
-              <!--<ng-container
-                *ngIf="currentFormContent[i][field].type === 'radio'"
-              >
-                <input
-                  *ngFor="let op of currentFormContent[i][field].options"
-                  [type]="radio"
-                  [name]="op.name"
-                  [value]="op.value"
-                  [formControlName]="field"
-                  [id]="field"
-                />
-                {{ op.name }}
-              </ng-container> -->
             </div>
 
             <p
@@ -141,15 +127,14 @@
           >
             Previous
           </button>
-          <a routerLink="/complete"
-            ><button
-              *ngIf="activeStepIndex === stepItems.length - 1"
-              type="submit"
-              (click)="onFormSubmit()"
-            >
-              Submit
-            </button>
-          </a>
+          <button
+            *ngIf="activeStepIndex === stepItems.length - 1"
+            type="submit"
+            (click)="onFormSubmit()"
+          >
+            Submit
+          </button>
+
           <button
             type="button"
             [disabled]="

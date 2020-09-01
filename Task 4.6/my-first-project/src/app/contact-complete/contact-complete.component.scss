@@ -11,23 +11,20 @@
         margin: 20px auto;
         display: grid;
 
-        a {
+        button {
             justify-self: center;
+            width: 200px;
+            height: 40px;
+            border: none;
+            border-radius: 5px;
+            background-color: rgb(63, 190, 63);
+            color: #fff;
+            font-size: 16px;
+            outline: none;
+            cursor: pointer;
 
-            button {
-                width: 200px;
-                height: 40px;
-                border: none;
-                border-radius: 5px;
-                background-color: rgb(63, 190, 63);
-                color: #fff;
-                font-size: 16px;
-                outline: none;
-                cursor: pointer;
-
-                &:hover {
-                    background-color: rgb(33, 168, 33);
-                }
+            &:hover {
+                background-color: rgb(33, 168, 33);
             }
         }
     }
