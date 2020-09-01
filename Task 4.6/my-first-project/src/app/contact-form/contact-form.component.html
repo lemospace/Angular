@@ -16,10 +16,13 @@
         name="firstName"
         [(ngModel)]="model.firstName"
         #firstName="ngModel"
-        [ngClass]="{ 'is-invalid': f.pristine && firstName.invalid }"
+        [ngClass]="{ 'is-invalid': firstName.pristine && firstName.invalid }"
         required
       />
-      <div *ngIf="f.pristine && firstName.invalid" class="invalid-feedback">
+      <div
+        *ngIf="firstName.pristine && firstName.invalid"
+        class="invalid-feedback"
+      >
         <div *ngIf="firstName.errors.required">First Name is required</div>
       </div>
     </div>
@@ -31,26 +34,29 @@
         name="lastName"
         [(ngModel)]="model.lastName"
         #lastName="ngModel"
-        [ngClass]="{ 'is-invalid': f.pristine && lastName.invalid }"
+        [ngClass]="{ 'is-invalid': lastName.pristine && lastName.invalid }"
         required
       />
-      <div *ngIf="f.pristine && lastName.invalid" class="invalid-feedback">
+      <div
+        *ngIf="lastName.pristine && lastName.invalid"
+        class="invalid-feedback"
+      >
         <div *ngIf="lastName.errors.required">Last Name is required</div>
       </div>
     </div>
     <div class="form-group">
       <label for="email">Email</label>
       <input
-        type="text"
+        type="email"
         class="form-control"
         name="email"
         [(ngModel)]="model.email"
         #email="ngModel"
-        [ngClass]="{ 'is-invalid': f.pristine && email.invalid }"
+        [ngClass]="{ 'is-invalid': email.pristine && email.invalid }"
         required
         email
       />
-      <div *ngIf="f.pristine && email.invalid" class="invalid-feedback">
+      <div *ngIf="email.pristine && email.invalid" class="invalid-feedback">
         <div *ngIf="email.errors.required">Email is required</div>
         <div *ngIf="email.errors.email">
           Email must be a valid email address
