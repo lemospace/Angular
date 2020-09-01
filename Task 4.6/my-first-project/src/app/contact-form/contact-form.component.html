@@ -18,12 +18,16 @@
         #firstName="ngModel"
         [ngClass]="{ 'is-invalid': firstName.pristine && firstName.invalid }"
         required
+        minlength="2"
       />
       <div
         *ngIf="firstName.pristine && firstName.invalid"
         class="invalid-feedback"
       >
         <div *ngIf="firstName.errors.required">First Name is required</div>
+        <div *ngIf="firstName.errors.minlength">
+          First Name length should be 2 characters at least
+        </div>
       </div>
     </div>
     <div class="form-group">
@@ -36,12 +40,16 @@
         #lastName="ngModel"
         [ngClass]="{ 'is-invalid': lastName.pristine && lastName.invalid }"
         required
+        minlength="2"
       />
       <div
         *ngIf="lastName.pristine && lastName.invalid"
         class="invalid-feedback"
       >
         <div *ngIf="lastName.errors.required">Last Name is required</div>
+        <div *ngIf="lastName.errors.minlength">
+          Last Name length should be 2 characters at least
+        </div>
       </div>
     </div>
     <div class="form-group">
