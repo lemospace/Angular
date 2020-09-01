@@ -25,6 +25,11 @@
         class="invalid-feedback"
       >
         <div *ngIf="firstName.errors.required">First Name is required</div>
+      </div>
+      <div
+        *ngIf="firstName.dirty && firstName.invalid"
+        class="invalid-feedback"
+      >
         <div *ngIf="firstName.errors.minlength">
           First Name length should be 2 characters at least
         </div>
@@ -47,6 +52,8 @@
         class="invalid-feedback"
       >
         <div *ngIf="lastName.errors.required">Last Name is required</div>
+      </div>
+      <div *ngIf="lastName.dirty && lastName.invalid" class="invalid-feedback">
         <div *ngIf="lastName.errors.minlength">
           Last Name length should be 2 characters at least
         </div>
@@ -60,12 +67,16 @@
         name="email"
         [(ngModel)]="model.email"
         #email="ngModel"
-        [ngClass]="{ 'is-invalid': email.pristine && email.invalid }"
+        [ngClass]="{
+          'is-invalid': email.pristine && email.invalid
+        }"
         required
         email
       />
       <div *ngIf="email.pristine && email.invalid" class="invalid-feedback">
         <div *ngIf="email.errors.required">Email is required</div>
+      </div>
+      <div *ngIf="email.dirty && email.invalid" class="invalid-feedback">
         <div *ngIf="email.errors.email">
           Email must be a valid email address
         </div>
