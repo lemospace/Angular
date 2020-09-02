@@ -15,9 +15,7 @@ import { ContactComponent } from './contact/contact.component';
 import { AboutComponent } from './about/about.component';
 import { BikesComponent } from './bikes/bikes.component';
 import { BikeDetailComponent } from './bike-detail/bike-detail.component';
-import { OrderComponent } from './order/order.component';
-import { FormatTitlePipe } from './format-title.pipe';
-import { MultiStepFormComponent } from './multi-step-form/multi-step-form.component';
+
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { OrderCompleteComponent } from './order-complete/order-complete.component';
 import { ContactCompleteComponent } from './contact-complete/contact-complete.component';
@@ -26,7 +24,6 @@ const appRoutes: Routes = [
   { path: '', component: MainComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'about', component: AboutComponent },
-  { path: 'order', component: OrderComponent },
 ];
 
 @NgModule({
@@ -37,9 +34,7 @@ const appRoutes: Routes = [
     AboutComponent,
     BikesComponent,
     BikeDetailComponent,
-    OrderComponent,
-    FormatTitlePipe,
-    MultiStepFormComponent,
+
     ContactFormComponent,
     OrderCompleteComponent,
     ContactCompleteComponent,

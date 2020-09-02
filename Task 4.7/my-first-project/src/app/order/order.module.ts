@@ -7,5 +7,6 @@ import { MultiStepFormModuleModule } from '../multi-step-form/multi-step-form-mo
 @NgModule({
   declarations: [OrderComponent],
   imports: [CommonModule, OrderRoutingModule, MultiStepFormModuleModule],
+  exports: [MultiStepFormModuleModule],
 })
 export class OrderModule {}
