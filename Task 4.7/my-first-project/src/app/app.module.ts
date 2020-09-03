@@ -19,8 +19,8 @@ import { OrderCompleteComponent } from './order-complete/order-complete.componen
 import { ContactCompleteComponent } from './contact-complete/contact-complete.component';
 
 const appRoutes: Routes = [
-  { path: '', component: MainComponent },
-  //{ path: 'contact', component: ContactComponent },
+  { path: 'main', component: MainComponent },
+
   { path: 'about', component: AboutComponent },
 ];
 

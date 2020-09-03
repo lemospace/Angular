@@ -26,6 +26,13 @@ const routes: Routes = [
       import('./contact/contact.module').then((m) => m.ContactModule),
   },
   {
+    path: 'addNewProduct',
+    loadChildren: () =>
+      import('./add-new-product/add-new-product.module').then(
+        (m) => m.AddNewProductModule
+      ),
+  },
+  {
     path: '',
     redirectTo: '',
     pathMatch: 'full',
