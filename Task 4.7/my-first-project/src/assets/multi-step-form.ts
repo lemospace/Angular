@@ -1,5 +1,4 @@
 import { dataComponents } from './data';
-import { Data } from 'src/app/data';
 
 const PaymentMethods = [
   {
