@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Data } from '../data';
 import { DataService } from '../data.service';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-add-new-product',
@@ -9,40 +9,33 @@ import { FormGroup, FormBuilder } from '@angular/forms';
   styleUrls: ['./add-new-product.component.scss'],
 })
 export class AddNewProductComponent implements OnInit {
-  newProductFrom: FormGroup;
-
-  newProducts: Data = {
-    id: 10,
-    imgUrl:
-      'https://cyclingmagazine.ca/wp-content/uploads/2018/10/Krypton_A18_2016_red_ultegra_16_1.jpg',
-    price: 28000,
-    discount: 30,
-    main: false,
-    shop: 'Canada Bike',
-    name: 'Argon 18',
-    description:
-      'Founded by retired cyclist Gervais Rioux in Montreal in 1989, Argon 18 has grown to distribute bikes aross the world and sponsors a number of professional cycling teams and triathletes. In 2019, Argo 18 sponsores Hugo Houle’s UCI WorldTour team Astana',
-    shipping: 'Free shipping',
-    discountUntil: '2021-06-02T10:00:00',
-    new: true,
-    color: ['Blue', 'Grey', 'Orange', 'Black'],
-    size: ['S', 'L', 'XL', 'XXL'],
-    review: [
-      {
-        author: 'Michel Delap',
-        text: 'Good one, but I have some problem with wheels',
-        rating: 4,
-      },
-    ],
-  };
+  newProductFrom = new FormGroup({
+    id: new FormControl(''),
+    imgUrl: new FormControl(''),
+    price: new FormControl(''),
+    discount: new FormControl(''),
+    main: new FormControl(''),
+    shop: new FormControl(''),
+    name: new FormControl(''),
+    description: new FormControl(''),
+    shipping: new FormControl(''),
+    discountUntil: new FormControl(''),
+    new: new FormControl(''),
+    color: new FormControl(''),
+    size: new FormControl(''),
+    review: new FormGroup({
+      author: new FormControl(''),
+      text: new FormControl(''),
+      rating: new FormControl(''),
+    }),
+  });
 
   constructor(private dataService: DataService, private fb: FormBuilder) {}
 
-  ngOnInit(): void {
-    this.dataService.addProduct(this.newProducts);
-    this.initForm();
-  }
-  initForm() {
-    this.newProductFrom = this.fb.group({ DataService });
+  ngOnInit(): void {}
+
+  onSubmit() {
+    this.dataService.addProduct(this.newProductFrom.value);
+    //console.warn(this.newProductFrom.value);
   }
 }
