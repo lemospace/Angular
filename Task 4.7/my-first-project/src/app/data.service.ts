@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { dataComponents } from '../assets/data';
-import { newProducts } from './add-new-product/add-new-product.component';
+
 import { Observable, of } from 'rxjs';
 import { Data } from './data';
 
@@ -8,13 +8,15 @@ import { Data } from './data';
   providedIn: 'root',
 })
 export class DataService {
+  data = dataComponents;
   constructor() {}
 
   getGoods(): Observable<Data[]> {
-    return of(dataComponents);
+    return of(this.data);
   }
-  getProducts(): Observable<Data[]> {
-    return of(newProducts);
+
+  addProduct(product) {
+    this.data.push(product);
   }
 
   getBike(id: number): Observable<Data> {
