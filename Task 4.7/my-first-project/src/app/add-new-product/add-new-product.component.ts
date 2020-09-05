@@ -42,8 +42,20 @@ export class AddNewProductComponent implements OnInit {
     console.warn(this.newProductFrom.value);
   }
 
-  uploadedFiles: any[] = [];
-  onUpload(event) {
+  public myUploader(event) {
+    console.log('Reading file...');
     console.log(event);
+    for (const file of event.files) {
+      const dataset = this.readFile(file);
+    }
+  }
+
+  private readFile(file: File) {
+    const reader: FileReader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      console.log('readFile:', reader.result);
+      this.newProductFrom.controls.imgUrl.setValue(reader.result);
+    };
   }
 }

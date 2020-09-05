@@ -32,15 +32,14 @@
           <label for="imgUrl">Image</label>
           <p-fileUpload
             id="imgUrl"
-            formControlName="image"
-            (change)="onUpload($event)"
+            customUpload="true"
             name="myfile[]"
-            url="./upload.php"
             accept="image/*"
             maxFileSize="1000000"
+            (uploadHandler)="myUploader($event, form)"
           ></p-fileUpload>
 
-          <!--<input type="file" id="imgUrl" formControlName="imgUrl" />-->
+          <input type="hidden" formControlName="imgUrl" />
           <br /><br />
 
           <label for="price">Price</label>
