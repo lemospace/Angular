@@ -9,6 +9,8 @@ import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
   styleUrls: ['./add-new-product.component.scss'],
 })
 export class AddNewProductComponent implements OnInit {
+  products: Data[];
+
   newProductFrom = new FormGroup({
     id: new FormControl(''),
     imgUrl: new FormControl(''),
@@ -36,6 +38,12 @@ export class AddNewProductComponent implements OnInit {
 
   onSubmit() {
     this.dataService.addProduct(this.newProductFrom.value);
-    //console.warn(this.newProductFrom.value);
+
+    console.warn(this.newProductFrom.value);
+  }
+
+  uploadedFiles: any[] = [];
+  onUpload(event) {
+    console.log(event);
   }
 }

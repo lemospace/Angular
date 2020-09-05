@@ -30,7 +30,16 @@
           <br /><br />
 
           <label for="imgUrl">Image</label>
-          <input type="text" id="imgUrl" formControlName="imgUrl" />
+          <p-fileUpload
+            formControlName="image"
+            (change)="onUpload($event)"
+            name="myfile[]"
+            url="./upload.php"
+            accept="image/*"
+            maxFileSize="1000000"
+          ></p-fileUpload>
+
+          <!--<input type="file" id="imgUrl" formControlName="imgUrl" />-->
           <br /><br />
 
           <label for="price">Price</label>
@@ -44,7 +53,7 @@
           <label for="main">Main</label>
           <select id="main" formControlName="main">
             <option value="true">true</option>
-            <option value="false">false</option>
+            <option value="">false</option>
           </select>
           <br /><br />
 
@@ -75,7 +84,7 @@
           <label for="new">New</label>
           <select id="new" formControlName="new">
             <option value="true">true</option>
-            <option value="false">false</option>
+            <option value="">false</option>
           </select>
           <br /><br />
 
