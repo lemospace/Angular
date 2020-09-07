@@ -20,6 +20,10 @@ import { ContactCompleteComponent } from './contact-complete/contact-complete.co
 
 import { DataService } from './data.service';
 
+import { environment } from 'src/environments/environment';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+
 const appRoutes: Routes = [
   { path: 'main', component: MainComponent },
 
@@ -46,6 +50,8 @@ const appRoutes: Routes = [
     }),
     FormsModule,
     ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
   ],
   providers: [DataService],
   bootstrap: [AppComponent],
