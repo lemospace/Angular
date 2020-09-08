@@ -13,8 +13,19 @@ export class BikesComponent implements OnInit {
   constructor(private dataService: DataService) {}
 
   ngOnInit(): void {
-    this.dataService.getGoods().subscribe((res) => {
+    this.dataService.getFirebaseData().subscribe((res) => {
       this.bikes = res;
     });
+    this.getFirebaseData();
   }
+
+  firebaseData;
+
+  getFirebaseData = () => {
+    this.dataService
+      .getFirebaseData()
+      .subscribe(
+        (res) => ((this.firebaseData = res), console.log(this.firebaseData))
+      );
+  };
 }

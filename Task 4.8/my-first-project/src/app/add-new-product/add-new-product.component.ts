@@ -39,16 +39,13 @@ export class AddNewProductComponent implements OnInit {
   onSubmit() {
     this.dataService.addProduct(this.newProductFrom.value);
 
-    console.warn(this.newProductFrom.value);
-
     let data = this.newProductFrom.value;
 
-    this.dataService.createData(data).then((res) => {});
+    this.dataService.createFirebaseData(data).then((res) => {});
+    alert('Product has been aded!');
   }
 
   public myUploader(event) {
-    console.log('Reading file...');
-    console.log(event);
     for (const file of event.files) {
       const dataset = this.readFile(file);
     }
@@ -58,7 +55,6 @@ export class AddNewProductComponent implements OnInit {
     const reader: FileReader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = () => {
-      console.log('readFile:', reader.result);
       this.newProductFrom.controls.imgUrl.setValue(reader.result);
     };
   }

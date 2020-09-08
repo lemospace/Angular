@@ -25,10 +25,10 @@ export class DataService {
     return of(dataComponents.find((bike) => bike.id === id));
   }
 
-  createData(data) {
+  createFirebaseData(data) {
     return new Promise<any>((resolve, reject) => {
       this.firestore
-        .collection('dataComponents')
+        .collection('firebaseData')
         .add(data)
         .then(
           (res) => {},
@@ -36,7 +36,7 @@ export class DataService {
         );
     });
   }
-  getData() {
-    return this.firestore.collection('dataComponents').snapshotChanges();
+  getFirebaseData() {
+    return this.firestore.collection('firebaseData').snapshotChanges();
   }
 }
