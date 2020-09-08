@@ -5,6 +5,10 @@ import { Location } from '@angular/common';
 import { DataService } from '../data.service';
 import { Data } from '../data';
 import { dataComponents } from '../../assets/data';
+import {
+  AngularFirestore,
+  AngularFirestoreCollection,
+} from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-bike-detail',
@@ -17,7 +21,8 @@ export class BikeDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private dataService: DataService,
-    private location: Location
+    private location: Location,
+    private firestore: AngularFirestore
   ) {}
 
   ngOnInit(): void {
@@ -25,7 +30,8 @@ export class BikeDetailComponent implements OnInit {
   }
 
   getBike(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
+    //const id = +this.route.snapshot.paramMap.get('id');
+    const id = +this.firestore.createId();
     this.dataService.getBike(id).subscribe((bike) => (this.bike = bike));
   }
   goBack(): void {

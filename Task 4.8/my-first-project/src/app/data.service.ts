@@ -4,7 +4,11 @@ import { dataComponents } from '../assets/data';
 import { Observable, of } from 'rxjs';
 import { Data } from './data';
 
-import { AngularFirestore } from '@angular/fire/firestore';
+import {
+  AngularFirestore,
+  AngularFirestoreCollection,
+} from '@angular/fire/firestore';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -37,6 +41,17 @@ export class DataService {
     });
   }
   getFirebaseData() {
-    return this.firestore.collection('firebaseData').snapshotChanges();
+    return this.firestore
+      .collection('firebaseData')
+      .snapshotChanges()
+      .pipe(
+        map((actions) =>
+          actions.map((a) => {
+            const data = a.payload.doc.data() as Data;
+            const id = a.payload.doc.id;
+            return { id, ...data };
+          })
+        )
+      );
   }
 }
