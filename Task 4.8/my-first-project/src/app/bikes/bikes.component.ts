@@ -12,14 +12,14 @@ export class BikesComponent implements OnInit {
 
   constructor(private dataService: DataService) {}
 
+  firebaseData;
+
   ngOnInit(): void {
     this.dataService.getFirebaseData().subscribe((res) => {
       this.bikes = res;
     });
     this.getFirebaseData();
   }
-
-  firebaseData;
 
   getFirebaseData = () => {
     this.dataService

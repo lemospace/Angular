@@ -26,7 +26,8 @@ export class DataService {
   }
 
   getBike(id: number): Observable<Data> {
-    return of(dataComponents.find((bike) => bike.id === id));
+    //return of(dataComponents.find((bike) => bike.id === id));
+    return this.firestore.doc<Data>('items/1').valueChanges();
   }
 
   createFirebaseData(data) {
@@ -49,7 +50,7 @@ export class DataService {
           actions.map((a) => {
             const data = a.payload.doc.data() as Data;
             const id = a.payload.doc.id;
-            return { id, ...data };
+            return { ...data, id };
           })
         )
       );
