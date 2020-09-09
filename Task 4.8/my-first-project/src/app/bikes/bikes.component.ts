@@ -16,7 +16,7 @@ export class BikesComponent implements OnInit {
 
   ngOnInit(): void {
     this.dataService.getFirebaseData().subscribe((res) => {
-      this.bikes = res;
+      this.firebaseData = res;
     });
     this.getFirebaseData();
   }
