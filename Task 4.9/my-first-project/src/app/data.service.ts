@@ -55,4 +55,11 @@ export class DataService {
         )
       );
   }
+
+  deleteBike(id: string): Observable<Data> {
+    return (
+      this.firestore.doc<Data>('firebaseData/' + id).delete(),
+      alert('Product has been deleted!')
+    );
+  }
 }

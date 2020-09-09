@@ -33,9 +33,14 @@ export class BikeDetailComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     //const id = this.firestore.createId();
     this.dataService.getBike(id).subscribe((bike) => (this.bike = bike));
-    console.log(id);
   }
   goBack(): void {
     this.location.back();
+  }
+
+  deleteBike(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    //const id = this.firestore.createId();
+    this.dataService.deleteBike(id).subscribe((bike) => (this.bike = bike));
   }
 }
