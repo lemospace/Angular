@@ -14,7 +14,7 @@ import { MainComponent } from './main/main.component';
 import { AboutComponent } from './about/about.component';
 import { BikesComponent } from './bikes/bikes.component';
 import { BikeDetailComponent } from './bike-detail/bike-detail.component';
-
+import { EditDetailComponent } from './edit-detail/edit-detail.component';
 import { OrderCompleteComponent } from './order-complete/order-complete.component';
 import { ContactCompleteComponent } from './contact-complete/contact-complete.component';
 
@@ -37,7 +37,7 @@ const appRoutes: Routes = [
     AboutComponent,
     BikesComponent,
     BikeDetailComponent,
-
+    EditDetailComponent,
     OrderCompleteComponent,
     ContactCompleteComponent,
   ],

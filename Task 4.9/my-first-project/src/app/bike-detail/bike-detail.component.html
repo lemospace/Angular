@@ -42,7 +42,10 @@
       <i class="fas fa-magic"></i> Add to Wish List
     </button>
 
-    <button class="edit"><i class="fas fa-edit"></i> Edit</button>
+    <button class="edit" (click)="onEdit()">
+      <i class="fas fa-edit"></i> Edit
+    </button>
+
     <button type="button" class="del" (click)="deleteBike(data)">
       <i class="fas fa-trash-alt"></i> Delete
     </button>

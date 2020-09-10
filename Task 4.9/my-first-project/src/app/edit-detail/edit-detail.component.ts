@@ -2,14 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { Data } from '../data';
 import { DataService } from '../data.service';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-add-new-product',
-  templateUrl: './add-new-product.component.html',
-  styleUrls: ['./add-new-product.component.scss'],
+  selector: 'app-edit-detail',
+  templateUrl: './edit-detail.component.html',
+  styleUrls: ['./edit-detail.component.scss'],
 })
-export class AddNewProductComponent implements OnInit {
+export class EditDetailComponent implements OnInit {
   products: Data[];
+  bike: Data;
 
   newProductFrom = new FormGroup({
     id: new FormControl(''),
@@ -32,8 +34,14 @@ export class AddNewProductComponent implements OnInit {
     }),
   });
 
-  constructor(private dataService: DataService, private fb: FormBuilder) {}
-  ngOnInit(): void {}
+  constructor(
+    private dataService: DataService,
+    private fb: FormBuilder,
+    private route: ActivatedRoute
+  ) {}
+  ngOnInit(): void {
+    this.getBike();
+  }
 
   onSubmit() {
     this.dataService.addProduct(this.newProductFrom.value);
@@ -56,5 +64,10 @@ export class AddNewProductComponent implements OnInit {
     reader.onload = () => {
       this.newProductFrom.controls.imgUrl.setValue(reader.result);
     };
+  }
+
+  getBike(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    this.dataService.getBike(id).subscribe((bike) => (this.bike = bike));
   }
 }

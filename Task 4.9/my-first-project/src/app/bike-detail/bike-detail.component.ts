@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { DataService } from '../data.service';
@@ -22,7 +22,8 @@ export class BikeDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private dataService: DataService,
     private location: Location,
-    private firestore: AngularFirestore
+    private firestore: AngularFirestore,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -40,7 +41,12 @@ export class BikeDetailComponent implements OnInit {
 
   deleteBike(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    //const id = this.firestore.createId();
-    this.dataService.deleteBike(id).subscribe((bike) => (this.bike = bike));
+
+    this.dataService.deleteBike(id);
+  }
+
+  onEdit(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    this.router.navigateByUrl('editDetail/' + id);
   }
 }

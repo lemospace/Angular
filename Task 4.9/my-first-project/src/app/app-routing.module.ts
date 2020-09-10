@@ -7,12 +7,12 @@ import { OrderCompleteComponent } from './order-complete/order-complete.componen
 
 import { ContactCompleteComponent } from './contact-complete/contact-complete.component';
 import { MainComponent } from './main/main.component';
-
+import { EditDetailComponent } from './edit-detail/edit-detail.component';
 const routes: Routes = [
   { path: 'bikes', component: BikesComponent },
   { path: 'detail/:id', component: BikeDetailComponent },
   { path: 'complete', component: OrderCompleteComponent },
-
+  { path: 'editDetail/:id', component: EditDetailComponent },
   { path: 'contact-complete', component: ContactCompleteComponent },
   { path: 'main', component: MainComponent },
   {
@@ -32,6 +32,7 @@ const routes: Routes = [
         (m) => m.AddNewProductModule
       ),
   },
+
   {
     path: '',
     redirectTo: '',
