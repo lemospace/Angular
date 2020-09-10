@@ -1,13 +1,9 @@
 import { Injectable } from '@angular/core';
-import { dataComponents } from '../assets/data';
 
 import { Observable, of } from 'rxjs';
 import { Data } from './data';
 
-import {
-  AngularFirestore,
-  AngularFirestoreCollection,
-} from '@angular/fire/firestore';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -15,18 +11,8 @@ import { map } from 'rxjs/operators';
 })
 export class DataService {
   constructor(private firestore: AngularFirestore) {}
-  data = dataComponents;
-
-  getGoods(): Observable<Data[]> {
-    return of(this.data);
-  }
-
-  addProduct(product) {
-    this.data.push(product);
-  }
 
   getBike(id: string): Observable<Data> {
-    //return of(dataComponents.find((bike) => bike.id === id));
     return this.firestore.doc<Data>('firebaseData/' + id).valueChanges();
   }
 
@@ -60,6 +46,14 @@ export class DataService {
     return (
       this.firestore.doc('firebaseData/' + id).delete(),
       alert('Product has been deleted!')
+    );
+  }
+
+  onUpdate(data, id) {
+    return (
+      this.firestore.doc('firebaseData/' + id).set(data),
+      alert('Changes have been saved!'),
+      console.log(data)
     );
   }
 }

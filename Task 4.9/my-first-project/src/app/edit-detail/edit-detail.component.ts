@@ -43,15 +43,6 @@ export class EditDetailComponent implements OnInit {
     this.getBike();
   }
 
-  onSubmit() {
-    this.dataService.addProduct(this.newProductFrom.value);
-
-    let data = this.newProductFrom.value;
-
-    this.dataService.createFirebaseData(data).then((res) => {});
-    alert('Product has been aded!');
-  }
-
   public myUploader(event) {
     for (const file of event.files) {
       const dataset = this.readFile(file);
@@ -68,6 +59,15 @@ export class EditDetailComponent implements OnInit {
 
   getBike(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    this.dataService.getBike(id).subscribe((bike) => (this.bike = bike));
+    this.dataService.getBike(id).subscribe((bike) => {
+      this.bike = bike;
+      this.newProductFrom.setValue(bike);
+    });
+  }
+
+  onUpdate(): void {
+    let data = this.newProductFrom.value;
+    const id = this.route.snapshot.paramMap.get('id');
+    this.dataService.onUpdate(data, id);
   }
 }

@@ -36,8 +36,6 @@ export class AddNewProductComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit() {
-    this.dataService.addProduct(this.newProductFrom.value);
-
     let data = this.newProductFrom.value;
 
     this.dataService.createFirebaseData(data).then((res) => {});

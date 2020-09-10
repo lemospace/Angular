@@ -14,7 +14,6 @@ import { MainComponent } from './main/main.component';
 import { AboutComponent } from './about/about.component';
 import { BikesComponent } from './bikes/bikes.component';
 import { BikeDetailComponent } from './bike-detail/bike-detail.component';
-import { EditDetailComponent } from './edit-detail/edit-detail.component';
 import { OrderCompleteComponent } from './order-complete/order-complete.component';
 import { ContactCompleteComponent } from './contact-complete/contact-complete.component';
 
@@ -23,6 +22,8 @@ import { DataService } from './data.service';
 import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { FileUploadModule } from 'primeng/fileupload';
+import { HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Routes = [
   { path: 'main', component: MainComponent },
@@ -37,7 +38,7 @@ const appRoutes: Routes = [
     AboutComponent,
     BikesComponent,
     BikeDetailComponent,
-    EditDetailComponent,
+
     OrderCompleteComponent,
     ContactCompleteComponent,
   ],
@@ -52,6 +53,8 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
+    FileUploadModule,
+    HttpClientModule,
   ],
   providers: [DataService],
   bootstrap: [AppComponent],
